@@ -18,9 +18,7 @@ const ctx = await browser.newContext({
   locale: 'en-US',
 });
 let ok = 0;
-for (const cam of cams) {
-  const url = cam.links[0][1];
-  const out = `assets/cams/${slug(cam.name)}.jpg`;
+async function snap(url, out) {
   const page = await ctx.newPage();
   try {
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -48,13 +46,23 @@ for (const cam of cams) {
     await el.scrollIntoViewIfNeeded();
     await page.waitForTimeout(1500);
     await el.screenshot({ path: out, type: 'jpeg', quality: 72, timeout: 15000 });
-    ok++;
-    console.log('OK  ', cam.name, '->', out);
+    return null;
   } catch (e) {
-    console.log('SKIP', cam.name, '-', e.message.split('\n')[0]);
+    return e.message.split('\n')[0];
   } finally {
     await page.close();
   }
+}
+// Try each of a cam's links (main stream first, then alternates) until one works
+for (const cam of cams) {
+  const out = `assets/cams/${slug(cam.name)}.jpg`;
+  let err = 'no links';
+  for (const [, url] of cam.links) {
+    err = await snap(url, out);
+    if (!err) break;
+  }
+  if (!err) { ok++; console.log('OK  ', cam.name, '->', out); }
+  else console.log('SKIP', cam.name, '-', err);
 }
 await browser.close();
 console.log(`${ok}/${cams.length} snapshots saved`);
