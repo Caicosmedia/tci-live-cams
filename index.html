@@ -12,10 +12,14 @@
 <meta property="og:title" content="Turks & Caicos Live Cams">
 <meta property="og:description" content="Live beach cams across the islands, plus today's weather, wind and sea conditions. Presented by Caicos Media.">
 <meta property="og:url" content="https://comms.caicosmedia.tc/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://comms.caicosmedia.tc/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://comms.caicosmedia.tc/assets/og-image.jpg">
 <meta name="twitter:title" content="Turks & Caicos Live Cams">
 <meta name="twitter:description" content="Live beach cams across the islands, plus today's weather, wind and sea conditions.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230089FF'/%3E%3Cg transform='translate(9 12) scale(0.135)'%3E%3Cpath fill='%23fff' d='M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -43,14 +47,12 @@ a{color:var(--accent)}
 
 /* Hero */
 .hero{background:var(--deep);color:var(--white);position:relative;overflow:hidden;padding-top:env(safe-area-inset-top,0px)}
-.hero::after{content:"";position:absolute;right:-120px;bottom:-140px;width:520px;height:440px;opacity:.07;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 287'%3E%3Cpath fill='%23BBFFF2' d='M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z'/%3E%3C/svg%3E")}
+.hero::after{content:"";position:absolute;right:-120px;bottom:-140px;width:520px;height:440px;opacity:.07;background:no-repeat center/contain url("assets/dolphin-aqua.png")}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
 .brand{display:flex;align-items:center;gap:10px;color:var(--white);text-decoration:none}
 .brand svg{width:38px;height:32px;flex:none}
-.logo-img{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
-footer .logo-img{height:26px}
-.logo-fallback{display:flex;align-items:center;gap:10px}
-.brand .logo-fallback span{font-weight:700;font-size:15px;line-height:1.05;letter-spacing:.06em;text-transform:uppercase}
+.logo-img{height:34px;width:auto;display:block}
+footer .logo-img{height:28px}
 .navlinks{display:flex;gap:18px}
 .navlinks a{color:var(--white);opacity:.85;text-decoration:none}
 .navlinks a:hover{opacity:1}
@@ -164,9 +166,7 @@ footer{background:var(--deep);color:#c8d0ea;margin-top:56px;padding:36px 0 calc(
   <div class="wrap">
     <div class="topbar">
       <a class="brand" href="https://caicosmedia.tc" target="_blank" rel="noopener" aria-label="Caicos Media">
-        <img class="logo-img" src="assets/logo-horizontal.png" alt="Caicos Media" onload="this.nextElementSibling.remove()" onerror="this.remove()">
-        <span class="logo-fallback"><svg viewBox="0 0 340 287" aria-hidden="true"><path fill="#FFFFFF" d="M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z"/></svg>
-        <span>Caicos<br>Media</span></span>
+        <img class="logo-img" src="assets/logo-horizontal.png" alt="Caicos Media">
       </a>
       <nav class="navlinks label" aria-label="Sections">
         <a href="#cams">Cams</a><a href="#map-sec">Map</a><a href="#submit">Add your cam</a>
@@ -263,9 +263,7 @@ footer{background:var(--deep);color:#c8d0ea;margin-top:56px;padding:36px 0 calc(
     <div class="foot-top">
       <div>
         <a class="brand" href="https://caicosmedia.tc" target="_blank" rel="noopener" aria-label="Caicos Media">
-          <img class="logo-img" src="assets/logo-horizontal.png" alt="Caicos Media" onload="this.nextElementSibling.remove()" onerror="this.remove()">
-          <span class="logo-fallback"><svg viewBox="0 0 340 287" aria-hidden="true" style="width:34px;height:29px"><path fill="#BBFFF2" d="M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z"/></svg>
-          <span>Caicos<br>Media</span></span>
+          <img class="logo-img" src="assets/logo-horizontal.png" alt="Caicos Media">
         </a>
         <p>Content marketing, film and photography, social media and out-of-home advertising in Turks &amp; Caicos. Want your property in front of every visitor checking the beach? <a href="mailto:hello@caicosmedia.tc">Talk to us.</a></p>
       </div>
