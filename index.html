@@ -6,12 +6,12 @@
 <title>Turks & Caicos Live Cams | Caicos Media</title>
 <meta name="description" content="Live beach cams across Turks and Caicos, with current weather, wind, sea conditions and sunrise times. Check Grace Bay, Leeward, Long Bay, the North Shore and Grand Turk before you head out.">
 <meta name="theme-color" content="#00124C">
-<link rel="canonical" href="https://caicosmedia.github.io/tci-live-cams/">
+<link rel="canonical" href="https://comms.caicosmedia.tc/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Caicos Media">
 <meta property="og:title" content="Turks & Caicos Live Cams">
 <meta property="og:description" content="Live beach cams across the islands, plus today's weather, wind and sea conditions. Presented by Caicos Media.">
-<meta property="og:url" content="https://caicosmedia.github.io/tci-live-cams/">
+<meta property="og:url" content="https://comms.caicosmedia.tc/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Turks & Caicos Live Cams">
 <meta name="twitter:description" content="Live beach cams across the islands, plus today's weather, wind and sea conditions.">
@@ -47,7 +47,10 @@ a{color:var(--accent)}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
 .brand{display:flex;align-items:center;gap:10px;color:var(--white);text-decoration:none}
 .brand svg{width:38px;height:32px;flex:none}
-.brand span{font-weight:700;font-size:15px;line-height:1.05;letter-spacing:.06em;text-transform:uppercase}
+.logo-img{height:30px;width:auto;display:block;filter:brightness(0) invert(1)}
+footer .logo-img{height:26px}
+.logo-fallback{display:flex;align-items:center;gap:10px}
+.brand .logo-fallback span{font-weight:700;font-size:15px;line-height:1.05;letter-spacing:.06em;text-transform:uppercase}
 .navlinks{display:flex;gap:18px}
 .navlinks a{color:var(--white);opacity:.85;text-decoration:none}
 .navlinks a:hover{opacity:1}
@@ -66,7 +69,27 @@ h1{font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:clamp
 .stat .label{color:var(--aqua);font-size:.66rem;display:block}
 .stat b{display:block;font-weight:500;font-size:1.35rem;color:var(--white);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .stat small{display:block;color:#aab6dd;font-size:.78rem}
-.cond-note{position:relative;z-index:1;margin:-16px 0 0;padding-bottom:26px;font-size:.78rem;color:#aab6dd}
+.cond-note{position:relative;z-index:1;margin:-16px 0 0;padding-bottom:14px;font-size:.78rem;color:#aab6dd}
+.cond-head{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.cond-head .label{color:var(--aqua)}
+.units{display:inline-flex;border:1px solid rgba(187,255,242,.3);border-radius:999px;padding:3px}
+.units button{border:0;background:transparent;color:#d7def5;font:700 .78rem var(--font);letter-spacing:.06em;padding:6px 12px;border-radius:999px;cursor:pointer}
+.units button[aria-pressed="true"]{background:var(--aqua);color:var(--deep)}
+.units button:focus-visible{outline:2px solid var(--aqua);outline-offset:2px}
+.meter{display:flex;gap:3px;margin-top:8px}
+.meter i{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.15)}
+.meter i.on{background:var(--aqua)}
+.meter.l4 i.on,.meter.l5 i.on{background:#FFB547}
+.windguide{position:relative;z-index:1;padding-bottom:28px;color:#d7def5;font-size:.88rem}
+.windguide summary{cursor:pointer;color:var(--aqua);font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;list-style:none;display:inline-flex;align-items:center;gap:6px}
+.windguide summary::-webkit-details-marker{display:none}
+.windguide summary::before{content:"+";font-size:1rem;line-height:1}
+.windguide[open] summary::before{content:"–"}
+.wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin-top:12px}
+.wg div{background:rgba(255,255,255,.06);border:1px solid rgba(187,255,242,.14);border-radius:12px;padding:10px 12px}
+.wg b{display:block;color:var(--white);font-weight:500}
+.wg span{display:block;color:var(--aqua);font-size:.74rem;font-weight:700;letter-spacing:.06em;margin:2px 0 4px}
+.wg p{margin:0;font-size:.82rem;color:#c3cbe8}
 
 /* Controls */
 .controls{position:sticky;top:0;z-index:500;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--line)}
@@ -140,8 +163,9 @@ footer{background:var(--deep);color:#c8d0ea;margin-top:56px;padding:36px 0 calc(
   <div class="wrap">
     <div class="topbar">
       <a class="brand" href="https://caicosmedia.tc" target="_blank" rel="noopener" aria-label="Caicos Media">
-        <svg viewBox="0 0 340 287" aria-hidden="true"><path fill="#FFFFFF" d="M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z"/></svg>
-        <span>Caicos<br>Media</span>
+        <img class="logo-img" src="assets/logo-horizontal.png" alt="Caicos Media" onload="this.nextElementSibling.remove()" onerror="this.remove()">
+        <span class="logo-fallback"><svg viewBox="0 0 340 287" aria-hidden="true"><path fill="#FFFFFF" d="M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z"/></svg>
+        <span>Caicos<br>Media</span></span>
       </a>
       <nav class="navlinks label" aria-label="Sections">
         <a href="#cams">Cams</a><a href="#map-sec">Map</a><a href="#submit">Add your cam</a>
@@ -152,15 +176,32 @@ footer{background:var(--deep);color:#c8d0ea;margin-top:56px;padding:36px 0 calc(
       <h1>Turks &amp; Caicos<br>Live Cams</h1>
       <p class="lede">Live beach cameras across the islands, straight from the resorts and hosts that run them. Check the water, the wind and the sky before you head out.</p>
     </div>
+    <div class="cond-head">
+      <span class="label">Right now in Grace Bay</span>
+      <div class="units" role="group" aria-label="Units">
+        <button type="button" data-unit="imperial" aria-pressed="true">°F · mph</button>
+        <button type="button" data-unit="metric" aria-pressed="false">°C · km/h</button>
+      </div>
+    </div>
     <div class="conditions" id="conditions" aria-live="polite">
-      <div class="stat"><span class="label">Air</span><b id="c-temp">--</b><small id="c-feel">Grace Bay now</small></div>
-      <div class="stat"><span class="label">Wind</span><b id="c-wind">--</b><small id="c-gust">&nbsp;</small></div>
+      <div class="stat"><span class="label">Air</span><b id="c-temp">--</b><small id="c-feel">&nbsp;</small></div>
+      <div class="stat"><span class="label">Wind</span><b id="c-wind">--</b><small id="c-gust">&nbsp;</small><div class="meter" id="c-meter" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
       <div class="stat"><span class="label">Sea</span><b id="c-sea">--</b><small id="c-wave">&nbsp;</small></div>
       <div class="stat"><span class="label">Sky</span><b id="c-sky">--</b><small id="c-uv">&nbsp;</small></div>
       <div class="stat"><span class="label">Sunrise</span><b id="c-rise">--</b><small>Local time</small></div>
       <div class="stat"><span class="label">Sunset</span><b id="c-set">--</b><small>Local time</small></div>
     </div>
     <p class="cond-note" id="cond-note">Loading today's conditions for Providenciales…</p>
+    <details class="windguide">
+      <summary>What does the wind mean for my beach day?</summary>
+      <div class="wg">
+        <div><b>Calm</b><span>Under 8 mph · under 13 km/h</span><p>Glassy, clear water. Best for snorkeling, paddleboarding and swimming.</p></div>
+        <div><b>Light breeze</b><span>8–12 mph · 13–20 km/h</span><p>Small ripples and a nice cool-down. Great for almost everything.</p></div>
+        <div><b>Breezy</b><span>13–18 mph · 21–29 km/h</span><p>Choppy water, umbrellas need anchoring. Kitesurfers head to Long Bay.</p></div>
+        <div><b>Windy</b><span>19–24 mph · 30–39 km/h</span><p>Whitecaps and blowing sand. Snorkeling and paddling get hard. Try Leeward or Sapodilla Bay.</p></div>
+        <div><b>Very windy</b><span>25+ mph · 40+ km/h</span><p>Rough seas. Boat trips may be cancelled. A good day for the shore.</p></div>
+      </div>
+    </details>
   </div>
 </header>
 
@@ -221,8 +262,9 @@ footer{background:var(--deep);color:#c8d0ea;margin-top:56px;padding:36px 0 calc(
     <div class="foot-top">
       <div>
         <a class="brand" href="https://caicosmedia.tc" target="_blank" rel="noopener" aria-label="Caicos Media">
-          <svg viewBox="0 0 340 287" aria-hidden="true" style="width:34px;height:29px"><path fill="#BBFFF2" d="M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z"/></svg>
-          <span>Caicos<br>Media</span>
+          <img class="logo-img" src="assets/logo-horizontal.png" alt="Caicos Media" onload="this.nextElementSibling.remove()" onerror="this.remove()">
+          <span class="logo-fallback"><svg viewBox="0 0 340 287" aria-hidden="true" style="width:34px;height:29px"><path fill="#BBFFF2" d="M339,287 C336,284 333,280 329,277 C323,272 315,268 307,267 C300,266 295,263 290,258 C287,254 282,253 277,253 C266,254 254,255 243,255 C241,255 238,255 234,255 C237,251 240,248 243,244 C251,236 261,230 272,226 C278,225 282,219 281,212 C279,197 273,183 264,170 C257,159 250,149 239,141 C223,128 205,124 185,126 C176,127 177,126 179,135 C182,152 188,168 201,181 C199,181 198,181 198,180 C172,176 152,163 138,142 C136,140 134,139 132,140 C124,143 116,146 108,149 C98,153 88,154 77,155 C62,156 47,161 34,170 C26,175 17,180 7,182 C6,183 6,183 5,183 C3,182 1,182 1,181 C0,180 0,178 1,177 C3,172 6,168 9,164 C13,160 17,156 20,152 C22,151 23,149 21,146 C16,134 18,123 26,113 C35,99 45,86 57,76 C65,69 73,63 82,58 C104,45 128,36 154,32 C160,31 158,28 156,24 C154,20 153,16 152,12 C151,8 152,4 156,2 C160,0 163,2 166,5 C168,7 170,10 172,13 C177,20 182,26 189,31 C199,38 211,42 224,42 C232,42 239,44 246,48 C258,55 266,66 271,79 C273,84 276,88 281,90 C291,95 300,102 307,111 C313,119 316,129 314,139 C313,144 316,147 320,150 C327,155 333,161 337,169 C339,173 340,178 338,182 C337,185 335,187 332,187 C325,187 318,186 311,184 C304,182 297,181 289,182 C284,183 281,186 280,191 C278,203 281,214 288,224 C296,235 306,244 316,253 C321,258 326,263 331,268 C334,271 337,274 339,278 C340,281 340,284 339,287 Z"/></svg>
+          <span>Caicos<br>Media</span></span>
         </a>
         <p>Content marketing, film and photography, social media and out-of-home advertising in Turks &amp; Caicos. Want your property in front of every visitor checking the beach? <a href="mailto:hello@caicosmedia.tc">Talk to us.</a></p>
       </div>
@@ -289,7 +331,7 @@ function render(){
   const list=cams.filter(c=>(filter==='all'||c.island===filter)&&(!term||(c.name+' '+c.area+' '+c.island).toLowerCase().includes(term)));
   grid.innerHTML=list.map(c=>`
     <article class="card">
-      <div class="thumb ${c.style||''}">
+      <div class="thumb ${c.style||''}"${c.img?` style="background:center/cover no-repeat url('${esc(c.img)}')"`:''}>
         <span class="badge"><span class="dot"></span>LIVE</span>
         <span class="island">${esc(c.island)}</span>
       </div>
@@ -344,29 +386,54 @@ render();
   const codes={0:'Clear',1:'Mostly clear',2:'Partly cloudy',3:'Cloudy',45:'Fog',48:'Fog',51:'Drizzle',53:'Drizzle',55:'Drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',80:'Showers',81:'Showers',82:'Heavy showers',95:'Thunderstorms',96:'Thunderstorms',99:'Thunderstorms'};
   const dirs=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
   const compass=d=>dirs[Math.round(d/22.5)%16];
+  // Plain-language wind scale for beach days (thresholds in km/h)
+  const windFeel=k=>k<13?['Calm',1]:k<21?['Light breeze',2]:k<30?['Breezy',3]:k<40?['Windy',4]:['Very windy',5];
   const set=(id,v)=>{document.getElementById(id).textContent=v};
   const time=s=>s?new Date(s+':00').toLocaleTimeString([], {hour:'numeric',minute:'2-digit'}):'--';
   const note=document.getElementById('cond-note');
-  const wx=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LNG}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m,uv_index&daily=sunrise,sunset,uv_index_max&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=${encodeURIComponent(TZ)}&forecast_days=1`;
+  let unit='imperial', data={};
+  try{const u=localStorage.getItem('tci-units'); if(u==='metric'||u==='imperial') unit=u;}catch(e){}
+
+  const T=c=>unit==='metric'?Math.round(c)+'°C':Math.round(c*9/5+32)+'°F';
+  const W=k=>unit==='metric'?Math.round(k)+' km/h':Math.round(k/1.609)+' mph';
+
+  function paint(){
+    document.querySelectorAll('.units button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.unit===unit));
+    const c=data.wx, s=data.sea;
+    if(c){
+      set('c-temp',T(c.temperature_2m)); set('c-feel','Feels like '+T(c.apparent_temperature));
+      const [feel,lvl]=windFeel(c.wind_speed_10m);
+      set('c-wind',feel);
+      set('c-gust',`${W(c.wind_speed_10m)} from ${compass(c.wind_direction_10m)} · gusts ${W(c.wind_gusts_10m)}`);
+      const m=document.getElementById('c-meter'); m.className='meter l'+lvl;
+      m.querySelectorAll('i').forEach((i,n)=>i.classList.toggle('on',n<lvl));
+      set('c-sky',codes[c.weather_code]||'--');
+      set('c-uv','UV '+Math.round(c.uv_index??0)+(data.uvMax!=null?` · max ${Math.round(data.uvMax)}`:''));
+      set('c-rise',time(data.rise)); set('c-set',time(data.set));
+    }
+    if(s){
+      if(s.sea_surface_temperature!=null) set('c-sea',T(s.sea_surface_temperature));
+      if(s.wave_height!=null) set('c-wave',(unit==='metric'?s.wave_height.toFixed(1)+' m':(s.wave_height*3.281).toFixed(1)+' ft')+' waves'+(s.wave_period?`, ${Math.round(s.wave_period)}s apart`:''));
+    }
+  }
+  document.querySelector('.units').addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    unit=b.dataset.unit; try{localStorage.setItem('tci-units',unit);}catch(err){}
+    paint();
+  });
+  paint();
+
+  // Fetch in metric; convert on display
+  const wx=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LNG}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m,uv_index&daily=sunrise,sunset,uv_index_max&timezone=${encodeURIComponent(TZ)}&forecast_days=1`;
   const sea=`https://marine-api.open-meteo.com/v1/marine?latitude=${LAT}&longitude=${LNG}&current=wave_height,wave_period,sea_surface_temperature&timezone=${encodeURIComponent(TZ)}`;
   Promise.allSettled([fetch(wx).then(r=>r.ok?r.json():Promise.reject()),fetch(sea).then(r=>r.ok?r.json():Promise.reject())]).then(([a,b])=>{
-    let ok=false;
     if(a.status==='fulfilled'&&a.value.current){
-      ok=true; const c=a.value.current, d=a.value.daily||{};
-      set('c-temp',Math.round(c.temperature_2m)+'°F');
-      set('c-feel','Feels like '+Math.round(c.apparent_temperature)+'°F');
-      set('c-wind',Math.round(c.wind_speed_10m)+' mph '+compass(c.wind_direction_10m));
-      set('c-gust','Gusts '+Math.round(c.wind_gusts_10m)+' mph');
-      set('c-sky',codes[c.weather_code]||'--');
-      set('c-uv','UV '+Math.round(c.uv_index??0)+(d.uv_index_max?` · max ${Math.round(d.uv_index_max[0])}`:''));
-      set('c-rise',time(d.sunrise&&d.sunrise[0])); set('c-set',time(d.sunset&&d.sunset[0]));
+      const d=a.value.daily||{};
+      data.wx=a.value.current; data.rise=d.sunrise&&d.sunrise[0]; data.set=d.sunset&&d.sunset[0]; data.uvMax=d.uv_index_max&&d.uv_index_max[0];
     }
-    if(b.status==='fulfilled'&&b.value.current){
-      ok=true; const s=b.value.current;
-      if(s.sea_surface_temperature!=null) set('c-sea',Math.round(s.sea_surface_temperature*9/5+32)+'°F');
-      if(s.wave_height!=null) set('c-wave',(s.wave_height*3.281).toFixed(1)+' ft waves'+(s.wave_period?`, ${Math.round(s.wave_period)}s`:''));
-    }
-    note.textContent=ok?`Conditions for Grace Bay, Providenciales. Updated ${new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}.`:'Conditions are unavailable right now. The cams below still work.';
+    if(b.status==='fulfilled'&&b.value.current) data.sea=b.value.current;
+    paint();
+    note.textContent=(data.wx||data.sea)?`Updated ${new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})}. Data from Open-Meteo.`:'Conditions are unavailable right now. The cams below still work.';
   });
 })();
 
