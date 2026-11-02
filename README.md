@@ -14,4 +14,15 @@ Add an entry to the `cams` array near the bottom of `index.html` with `name`, `i
 
 ## Publishing
 
-Settings → Pages → Deploy from branch → `main` / root. The site will be at https://caicosmedia.github.io/tci-live-cams/
+Settings → Pages → Deploy from branch → `main` / root. Custom domain: comms.caicosmedia.tc (see `CNAME`). DNS needs a CNAME record `comms` pointing to `caicosmedia.github.io`.
+
+## Brand assets
+
+Put the real logo file in `assets/`:
+- `assets/logo-horizontal.png`: LOGOTYPE HORIZONTAL.png from the Caicos Media Brand Drive folder (shown white on the dark header)
+
+If the file is missing, the page falls back to a vector version of the logo mark.
+
+## Cam thumbnails
+
+Add `img:"assets/cams/<name>.jpg"` to any cam entry to show a photo instead of the illustrated placeholder.
