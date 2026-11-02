@@ -6,7 +6,7 @@ A Caicos Media directory of live beach cams across Turks & Caicos, with current 
 - Branding follows the Caicos Media Refresh Branding Guideline (Red Hat Display, Caribbean Deep Blue / Light Blue / Aquamarine / White Sand)
 - Conditions: [Open-Meteo](https://open-meteo.com/) forecast and marine APIs (free, no key)
 - Map: Leaflet + OpenStreetMap
-- "Add your cam" form opens a prefilled email to hello@caicosmediagroup.com
+- "Add your cam" form opens a prefilled email to hello@caicosmedia.tc
 
 ## Adding a cam
 
