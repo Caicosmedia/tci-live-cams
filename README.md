@@ -19,9 +19,10 @@ Settings → Pages → Deploy from branch → `main` / root. Custom domain: comm
 ## Brand assets
 
 Put the real logo file in `assets/`:
-- `assets/logo-horizontal.png`: LOGOTYPE HORIZONTAL.png from the Caicos Media Brand Drive folder (shown white on the dark header)
+- `assets/logo-horizontal.png` (white) and `assets/logo-horizontal-blue.png` (deep blue): from the real Caicos Media logotype
+- `assets/favicon-32.png`, `assets/icon-512.png`, `assets/apple-touch-icon.png`: white dolphin on Caribbean Light Blue, per the brand guideline
+- `assets/og-image.jpg`: social share image
 
-If the file is missing, the page falls back to a vector version of the logo mark.
 
 ## Cam thumbnails
 
