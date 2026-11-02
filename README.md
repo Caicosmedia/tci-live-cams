@@ -26,3 +26,7 @@ If the file is missing, the page falls back to a vector version of the logo mark
 ## Cam thumbnails
 
 Add `img:"assets/cams/<name>.jpg"` to any cam entry to show a photo instead of the illustrated placeholder.
+
+## Automatic cam snapshots
+
+`.github/workflows/deploy.yml` deploys the site to GitHub Pages on every push and every 3 hours. Before each deploy, `scripts/thumbnails.mjs` opens each cam's first link in a headless browser, screenshots the live player, and saves it as `assets/cams/<slug>.jpg`. Cams it can't capture keep the illustrated placeholder. Requires Settings → Pages → Source: **GitHub Actions**.

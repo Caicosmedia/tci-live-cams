@@ -117,8 +117,9 @@ h2{font-weight:500;text-transform:uppercase;letter-spacing:.04em;font-size:clamp
 .thumb.channel{background:linear-gradient(180deg,#c6dcff 0%,#e9f2ff 40%,#7ee8da 41%,#1aa3c9 100%)}
 .thumb.port{background:linear-gradient(180deg,#a9c6ef 0%,#dce9f8 48%,#2b8fd6 49%,#00124C 80%,#efe3d3 81%)}
 .thumb.north{background:linear-gradient(180deg,#ffd6b0 0%,#fbe9d6 42%,#64d2d8 43%,#0b6fc4 100%)}
-.badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(0,18,76,.72);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:999px}
-.island{position:absolute;bottom:10px;right:12px;background:rgba(249,244,239,.92);color:var(--deep);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.snap{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;z-index:1;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;background:rgba(0,18,76,.72);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.12em;padding:5px 10px;border-radius:999px}
+.island{position:absolute;z-index:1;bottom:10px;right:12px;background:rgba(249,244,239,.92);color:var(--deep);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
 .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
 .area{color:var(--accent)}
 .body h3{font-weight:500;font-size:1.12rem;text-transform:uppercase;letter-spacing:.03em;margin:0;color:var(--ink)}
@@ -315,6 +316,7 @@ const cams = [
 
 const grid=document.getElementById('grid'), q=document.getElementById('q'), count=document.getElementById('count'), empty=document.getElementById('empty'), filters=document.getElementById('filters');
 let filter='all', map=null; const markers={};
+const slug=n=>n.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
 // Island chips, built from the data so new islands appear automatically
@@ -331,7 +333,8 @@ function render(){
   const list=cams.filter(c=>(filter==='all'||c.island===filter)&&(!term||(c.name+' '+c.area+' '+c.island).toLowerCase().includes(term)));
   grid.innerHTML=list.map(c=>`
     <article class="card">
-      <div class="thumb ${c.style||''}"${c.img?` style="background:center/cover no-repeat url('${esc(c.img)}')"`:''}>
+      <div class="thumb ${c.style||''}">
+        <img class="snap" src="${esc(c.img||'assets/cams/'+slug(c.name)+'.jpg')}" alt="" loading="lazy" onerror="this.remove()">
         <span class="badge"><span class="dot"></span>LIVE</span>
         <span class="island">${esc(c.island)}</span>
       </div>
